@@ -8,6 +8,10 @@ const User = require("./models/users");
 
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.send("hello");
+});
+
 app.post("/signup", (req, res) => {
   const user = new User({
     name: req.body.name,
