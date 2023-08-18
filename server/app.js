@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const auth = require("./middleware/auth");
+require("dotenv");
 
 app.use(express.json());
 require("./mongoose/index").connect();
@@ -80,6 +81,6 @@ app.delete("/user-profile", auth, async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
   console.log("server running on port 3001");
 });
